@@ -3,7 +3,7 @@ import json
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="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",
+    api_key="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",
     base_url="https://openrouter.ai/api/v1" 
 )
 
@@ -17,7 +17,7 @@ results = []
 for index, row in df.iterrows():
     review = row['Review Text']
     
-    prompt = f"Проанализируй отзыв: {review}. Верни ответ строго в формате JSON с полями: sentiment (positive/negative/neutral), category (о чем отзыв, тема)."
+    prompt = f"Проанализируй отзыв: {review}. Верни ответ строго в формате JSON с полями: sentiment (positive/negative/neutral), category (тема (на русском языке))."
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
